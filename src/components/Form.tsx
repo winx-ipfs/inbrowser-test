@@ -2,7 +2,7 @@ import React, { type ReactElement } from 'react'
 
 export default ({ handleSubmit, requestPath, setRequestPath }): ReactElement => (
   <form id='add-file' onSubmit={handleSubmit}>
-    <label htmlFor='inputContent' className='f5 ma0 pb2 teal fw4 db'>CID, Content Path, or URL</label>
+    <label htmlFor='inputContent' className='f5 ma0 pb2 teal fw4 db'>CID、内容路径或 URL</label>
     <input
       className='input-reset bn black-80 bg-white pa3 w-100 mb3'
       id='inputContent'

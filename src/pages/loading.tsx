@@ -11,8 +11,8 @@ export default function LoadingPage (): ReactElement {
     <>
     <Header />
     <div className="loading-page pa4-l mw7 mv5 center pa4">
-      <h1 className="pa0 f3 ma0 teal tc">Loading in progress..</h1>
-      <p className="mb5">Service Worker Gateway initialized, please wait while it attempts to retrieve content from IPFS peers.</p>
+      <h1 className="pa0 f3 ma0 teal tc">正在装载…</h1>
+      <p className="mb5">Worker已初始化，正在尝试从IPFS检索内容，请稍候。</p>
       <div className="loading-animation"></div>
     </div>
     </>

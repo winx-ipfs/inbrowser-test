@@ -70,13 +70,13 @@ function RedirectPage ({ showConfigIframe = true }: { showConfigIframe?: boolean
 
   const displayString = useMemo(() => {
     if (!isServiceWorkerRegistered) {
-      return 'Registering Helia service worker...'
+      return '注册Helia服务人员…'
     }
     if (isAutoReloadEnabled && !isConfigPage(window.location.hash)) {
-      return 'Redirecting you because Auto Reload is enabled.'
+      return '因为启用了自动加载，所以重定向您。'
     }
 
-    return 'Click below to load the content with the specified config.'
+    return '单击下面以使用指定配置加载内容。'
   }, [isAutoReloadEnabled, isServiceWorkerRegistered])
 
   const loadContent = useCallback(() => {

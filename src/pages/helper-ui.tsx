@@ -24,7 +24,7 @@ function HelperUi (): ReactElement {
     <>
       <Header />
       <main className='pa2 pa4-l bg-snow mw7 mv5-l center e2e-helper-ui'>
-        <h1 className='pa0 f3 ma0 mb4 teal tc'>Fetch & Verify IPFS Content in Browser</h1>
+        <h1 className='pa0 f3 ma0 mb4 teal tc'>获取并验证浏览器中的 IPFS 内容</h1>
         <Form
           handleSubmit={handleSubmit}
           requestPath={requestPath}

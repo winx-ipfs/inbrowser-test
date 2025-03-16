@@ -5,24 +5,24 @@ import { nativeProtocolRegex, pathRegex, subdomainRegex, type IpfsUriParts } fro
 function FormatHelp (): ReactElement {
   return (
     <>
-      <p>Invalid address, correct it and try again. For reference, accepted formats are:</p>
+      <p>无效的地址，更正后再试一次。可供参考的格式有：</p>
       <table>
         <tbody>
           <tr>
-            <td>UNIX-like Content Path</td>
+            <td>类unix内容路径</td>
             <td><pre className="di pl3">/ipfs/cid/..</pre></td>
           </tr>
           <tr>
-            <td>HTTP Gateway URL</td>
+            <td>HTTP在线网关</td>
             <td><pre className="di pl3">https://ipfs.io/ipfs/cid..</pre></td>
           </tr>
           <tr>
-            <td>Native IPFS URL</td>
+            <td>本地地址</td>
             <td><pre className="di pl3">ipfs://cid/..</pre></td>
           </tr>
         </tbody>
       </table>
-      <p>Learn more at <a target="_blank" href="https://docs.ipfs.tech/how-to/address-ipfs-on-web">Addressing IPFS on the Web</a></p>
+      <p>欲知详情，请浏览<a target="_blank" href="https://docs.ipfs.tech/how-to/address-ipfs-on-web">在Web上IPFS的</a></p>
     </>
   )
 }
@@ -30,17 +30,17 @@ function FormatHelp (): ReactElement {
 function ValidationMessage ({ cidOrPeerIdOrDnslink, requestPath, protocol, children }): ReactElement {
   let errorElement: ReactElement | null = null
   if (requestPath == null || requestPath === '') {
-    errorElement = <span><big className="f3">↑</big> Enter a valid IPFS/IPNS content path.</span>
+    errorElement = <span><big className="f3">↑</big>请输入有效的IPFS/IPNS内容路径。</span>
   } else if (protocol !== 'ipfs' && protocol !== 'ipns') {
     errorElement = <FormatHelp />
   } else if (cidOrPeerIdOrDnslink == null || cidOrPeerIdOrDnslink === '') {
     const contentType = protocol === 'ipfs' ? 'CID' : 'PeerID or DNSLink'
-    errorElement = <span>Content identifier missing. Add a {contentType} to your path</span>
+    errorElement = <span>缺少内容标识符。添加一个{contentType} 到你的路径上</span>
   } else if (protocol === 'ipfs') {
     try {
       CID.parse(cidOrPeerIdOrDnslink)
     } catch {
-      errorElement = <span>Invalid CID</span>
+      errorElement = <span>无效的CID</span>
     }
   }
 
@@ -81,7 +81,7 @@ export default function InputValidator ({ requestPath }: { requestPath: string }
     <div>
       <ValidationMessage protocol={protocol} cidOrPeerIdOrDnslink={cidOrPeerIdOrDnslink} requestPath={requestPath}>
         <a className="db" href={swPath}>
-          <button id="load-directly" className='button-reset pv3 tc bn bg-animate bg-teal-muted hover-bg-navy-muted white pointer f4 w-100'>Load content</button>
+          <button id="load-directly" className='button-reset pv3 tc bn bg-animate bg-teal-muted hover-bg-navy-muted white pointer f4 w-100'>是时候了,现在开始！</button>
         </a>
       </ValidationMessage>
     </div>

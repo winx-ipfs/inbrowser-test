@@ -147,36 +147,36 @@ const ConfigPage: FunctionComponent<ConfigPageProps> = () => {
     <>
       {isConfigPage(window.location.hash) ? <Header /> : null}
       <section className='e2e-config-page pa4-l bg-snow mw7 center pa4'>
-        <h1 className='pa0 f3 ma0 mb4 teal tc'>Configure your IPFS Gateway</h1>
-        <InputSection label='Direct Retrieval'>
+        <h1 className='pa0 f3 ma0 mb4 teal tc'>配置你的 IPFS 网关</h1>
+        <InputSection label='检索配置'>
           <InputToggle
             className="e2e-config-page-input e2e-config-page-input-enableGatewayProviders"
-            label="Enable Delegated HTTP Gateway Providers"
-            description="Use gateway providers returned from delegated routers for direct retrieval."
+            label="启用委托 HTTP 网关提供商"
+            description="使用从委托路由器返回的网关提供商进行直接检索。"
             value={enableGatewayProviders}
             onChange={(value) => { setConfig('enableGatewayProviders', value) }}
             resetKey={resetKey}
           />
           <InputToggle
             className="e2e-config-page-input e2e-config-page-input-enableWss"
-            label="Enable Secure WebSocket Providers"
-            description="Use Secure WebSocket providers returned from delegated routers for direct retrieval."
+            label="启用安全 WebSocket 提供商"
+            description="使用从委托路由器返回的安全 WebSocket 提供商进行直接检索。"
             value={enableWss}
             onChange={(value) => { setConfig('enableWss', value) }}
             resetKey={resetKey}
           />
           <InputToggle
             className="e2e-config-page-input e2e-config-page-input-enableWebTransport"
-            label="Enable WebTransport Providers"
-            description="Use WebTransport providers returned from delegated routers for direct retrieval."
+            label="启用 WebTransport 提供者"
+            description="使用从委托路由器返回的 WebTransport 提供者进行直接检索。"
             value={enableWebTransport}
             onChange={(value) => { setConfig('enableWebTransport', value) }}
             resetKey={resetKey}
           />
           <Input
             className="e2e-config-page-input e2e-config-page-input-routers"
-            description="A newline delimited list of delegated IPFS router URLs."
-            label='Routers'
+            description="一个以换行符分隔的委托 IPFS 路由器 URL 列表。"
+            label='路由'
             validationFn={urlValidationFn}
             onChange={(value) => { setConfig('routers', value) }}
             value={convertUrlArrayToInput(routers)}
@@ -184,19 +184,19 @@ const ConfigPage: FunctionComponent<ConfigPageProps> = () => {
             resetKey={resetKey}
           />
         </InputSection>
-        <InputSection label='Fallback Retrieval'>
+        <InputSection label='回退检索'>
           <InputToggle
             className="e2e-config-page-input e2e-config-page-input-enableRecursiveGateways"
-            label="Enable Recursive Gateways"
-            description="Use recursive gateways configured below for retrieval of content."
+            label="启用递归网关"
+            description="使用以下配置的递归网关检索内容。"
             value={enableRecursiveGateways}
             onChange={(value) => { setConfig('enableRecursiveGateways', value) }}
             resetKey={resetKey}
           />
           <Input
             className="e2e-config-page-input e2e-config-page-input-gateways"
-            description="A newline delimited list of recursive trustless gateway URLs."
-            label='Recursive Gateways'
+            description="一个以换行符分隔的递归无信任网关 URL 列表。"
+            label='递归网关'
             validationFn={urlValidationFn}
             value={convertUrlArrayToInput(gateways)}
             onChange={(value) => { setConfig('gateways', value) }}
@@ -204,11 +204,11 @@ const ConfigPage: FunctionComponent<ConfigPageProps> = () => {
             resetKey={resetKey}
           />
         </InputSection>
-        <InputSection label='Other'>
+        <InputSection label='其他配置'>
           <Input
             className="e2e-config-page-input e2e-config-page-input-dnsJsonResolvers"
-            description="A newline delimited list of space delimited key+value pairs for DNS (application/dns-json) resolvers. The key is the domain suffix, and the value is the URL of the DNS resolver."
-            label='DNS'
+            description="一个以换行符分隔、以空格分隔的键+值对列表，用于 DNS（application/dns-json）解析器。键是域名后缀，值是 DNS 解析器的 URL。"
+            label='域名系统'
             validationFn={dnsJsonValidationFn}
             value={convertDnsResolverObjectToInput(dnsJsonResolvers)}
             onChange={(value) => { setConfig('dnsJsonResolvers', value) }}
@@ -217,16 +217,16 @@ const ConfigPage: FunctionComponent<ConfigPageProps> = () => {
           />
           <Input
             className="e2e-config-page-input e2e-config-page-input-debug"
-            description="A string that enables debug logging. Use '*,*:trace' to enable all debug logging."
-            label='Debug'
+            description="一个启用调试日志的字符串。使用 '*,*:trace' 启用所有调试日志。"
+            label='调试'
             value={debug}
             onChange={(value) => { setConfig('debug', value) }}
             resetKey={resetKey}
           />
         </InputSection>
         <div className="w-100 inline-flex flex-row justify-between">
-          <button className="e2e-config-page-button button-reset mr5 pv3 tc bg-animate hover-bg-gold pointer w-30 bn" id="reset-config" onClick={() => { void doResetConfig() }}>Reset Config</button>
-          <ServiceWorkerReadyButton className="e2e-config-page-button white w-100 pa3" id="save-config" label={isSaving ? 'Saving...' : 'Save Config'} waitingLabel='Waiting for service worker registration...' onClick={() => { void saveConfig() }} />
+          <button className="e2e-config-page-button button-reset mr5 pv3 tc bg-animate hover-bg-gold pointer w-30 bn" id="reset-config" onClick={() => { void doResetConfig() }}>重置配置</button>
+          <ServiceWorkerReadyButton className="e2e-config-page-button white w-100 pa3" id="save-config" label={isSaving ? '保存配置中' : '保存配置'} waitingLabel='“等待 Workers 注册……' onClick={() => { void saveConfig() }} />
         </div>
         {error != null && <span style={{ color: 'red' }}>{error.message}</span>}
       </section>

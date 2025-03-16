@@ -3,12 +3,11 @@ import React, { type ReactElement } from 'react'
 export default function About (): ReactElement {
   return (
         <aside className='mw7 lb-snow center w-100 lh-copy pa2 e2e-section-about'>
-          <h1 className='pa0 f3 ma0 mb4 teal tc'>About the IPFS Gateway and Service Worker</h1>
-          <p>This page runs an IPFS gateway within a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API" target="_blank">Service Worker</a>. It uses <a href="https://github.com/ipfs/helia" target="_blank">Helia</a> (IPFS implementation in JS) and the <a href="https://github.com/ipfs/helia-verified-fetch" target="_blank">@helia/verified-fetch</a> library (<a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API" target="_blank">Fetch API</a> for IPFS) to facilitate direct verified retrieval of <a href="https://docs.ipfs.tech/concepts/content-addressing/" target="_blank">content-addressed</a> data.</p>
-          <p><strong>Why?</strong> It improves decentralization, offers enhanced security (CID verification happens on end user's machine) and reliability (ability to do retrieval from multiple sources without reliance on a single HTTP server).</p>
-          <p><strong>How does it work?</strong> A Service Worker is registered on the initial page load, and then intercepts HTTP requests for content stored on <a href="https://docs.ipfs.tech/how-to/address-ipfs-on-web/" target="_blank">IPFS paths</a> such as <code>/ipfs/*</code> (immutable) and <code>/ipns/*</code> (mutable), takes care of IPFS retrieval, verification, UnixFS deserialization, and returns Response objects to the browser.</p>
-          <p><strong>Is this production ready?</strong> This project is under heavy development and is not yet fully compliant with <a href="https://specs.ipfs.tech/http-gateways/" target="_blank">IPFS Gateway Specfications</a>. Track our efforts  <a href="https://github.com/ipfs/service-worker-gateway/milestones" target="_blank">here</a>.</p>
-          <p><strong>Found a bug?</strong> We welcome you to report it by <a href="https://github.com/ipfs/service-worker-gateway/issues/new" target="_blank">opening an issue</a> with details like an address and a screenshot.</p>
+          <h1 className='pa0 f3 ma0 mb4 teal tc'>关于IPFS网关和Service Worker</h1>
+          <p>本页面在<a href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API" target="_blank">Service Worker</a>中运行一个 IPFS 网关。它使用<a href="https://github.com/ipfs/helia" target="_blank">Helia</a>（JS 中的 IPFS 实现）和<a href="https://github.com/ipfs/helia-verified-fetch" target="_blank">@helia/verified-fetch</a>库（用于 IPFS 的<a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API" target="_blank">Fetch API</a>）来简化直接验证检索<a href="https://docs.ipfs.tech/concepts/content-addressing/" target="_blank">内容寻址</a>数据的过程。</p>
+          <p><strong>为什么？</strong>在初始页面加载时注册一个 Service Worker，然后拦截存储在IPFS 路径（如（不可变）和（可变））上的 HTTP 请求，负责 IPFS 检索、验证、UnixFS 反序列化，并将响应对象返回给浏览器。/ipfs/*/ipns/*</p>
+          <p><strong>这是生产就绪吗？</strong>这个项目正在大力开发中，尚未完全符合<a href="https://specs.ipfs.tech/http-gateways/" target="_blank">IPFS 网关规范</a>. 在此<a href="https://github.com/ipfs/service-worker-gateway/milestones" target="_blank">跟踪我们的努力</a>.</p>
+          <p><strong>发现了一个bug?</strong> 欢迎您通过<a href="https://github.com/ipfs/service-worker-gateway/issues/new" target="_blank">提交issue</a>的方式报告，请提供详细信息，如地址和截图。</p>
         </aside>
   )
 }
